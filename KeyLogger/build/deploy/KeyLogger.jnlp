@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jnlp spec="1.0" xmlns:jfx="http://javafx.com" href="KeyLogger.jnlp">
+  <information>
+    <title>KeyLogger</title>
+    <vendor>Siddharth</vendor>
+    <description>KeyLogger</description>
+    <offline-allowed/>
+  </information>
+  <resources>
+    <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
+    <jar href="KeyLogger.jar" size="23398" download="eager" />
+    <jar href="libs\jfxrt.jar" size="18233843" download="eager" />
+    <jar href="libs\jfxswt.jar" size="33905" download="eager" />
+    <jar href="libs\sqlite-jdbc-3.8.11.2.jar" size="5575351" download="eager" />
+  </resources>
+  <jfx:javafx-desc  width="0" height="0" main-class="application.App"  name="KeyLogger" />
+  <update check="background"/>
+</jnlp>

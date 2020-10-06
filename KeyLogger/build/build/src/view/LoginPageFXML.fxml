@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="rootLoginPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="454.0" prefWidth="690.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LoginPageFXMLController">
+	<children>
+		<Button fx:id="loginBtn" layoutX="288.0" layoutY="271.0" mnemonicParsing="false" onAction="#LoginCredentialsVarification" prefHeight="32.0" prefWidth="114.0" style="-fx-background-color: #badc58;" text="Login" AnchorPane.leftAnchor="288.0" AnchorPane.rightAnchor="288.0">
+         <font>
+            <Font name="Consolas Bold" size="15.0" />
+         </font></Button>
+		<Button fx:id="newUserBtn" layoutX="279.0" layoutY="332.0" mnemonicParsing="false" onAction="#RegistrationPage" prefHeight="32.0" prefWidth="132.0" style="-fx-background-color: #f9ca24;" text="Register User" AnchorPane.leftAnchor="279.0" AnchorPane.rightAnchor="279.0">
+         <font>
+            <Font name="Consolas Bold" size="15.0" />
+         </font></Button>
+      <TextField fx:id="userNameTxtField" layoutX="283.0" layoutY="90.0" prefHeight="26.0" prefWidth="198.0" promptText="Enter User Name" />
+      <Label layoutX="122.0" layoutY="90.0" prefHeight="26.0" prefWidth="143.0" text="Username">
+         <font>
+            <Font name="Consolas Bold" size="20.0" />
+         </font></Label>
+      <Label layoutX="122.0" layoutY="148.0" prefHeight="26.0" prefWidth="143.0" text="Password">
+         <font>
+            <Font name="Consolas Bold" size="20.0" />
+         </font></Label>
+      <PasswordField fx:id="passwordTxtField" layoutX="283.0" layoutY="148.0" prefWidth="198.0" promptText="Enter Your Password" />
+      <Label alignment="CENTER" layoutX="223.0" layoutY="22.0" prefHeight="38.0" prefWidth="244.0" text="KeyLogger Login" textAlignment="CENTER">
+         <font>
+            <Font name="Consolas" size="22.0" />
+         </font>
+      </Label>
+      <Button fx:id="exitBtn" layoutX="288.0" layoutY="392.0" mnemonicParsing="false" onAction="#exitApplication" prefHeight="26.0" prefWidth="114.0" style="-fx-background-color: #eb4d4b;" text="EXIT">
+         <font>
+            <Font name="Consolas Bold" size="15.0" />
+         </font></Button>
+	</children>
+</AnchorPane>

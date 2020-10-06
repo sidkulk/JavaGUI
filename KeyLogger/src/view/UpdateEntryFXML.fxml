@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="rootUpdatePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.UpdateEntryFXMLController">
+   <children>
+      <Label layoutX="60.0" layoutY="131.0" prefHeight="28.0" prefWidth="139.0" text="Password Title">
+         <font>
+            <Font name="Consolas Bold" size="15.0" />
+         </font></Label>
+      <Label layoutX="60.0" layoutY="218.0" prefHeight="28.0" prefWidth="139.0" text="Updated Password">
+         <font>
+            <Font name="Consolas Bold" size="15.0" />
+         </font></Label>
+      <TextField fx:id="passwdTitleTxtField" layoutX="229.0" layoutY="131.0" prefHeight="28.0" prefWidth="226.0" />
+      <TextField fx:id="updatedPasswordTxtField" layoutX="229.0" layoutY="218.0" prefHeight="28.0" prefWidth="226.0" />
+      <Button fx:id="updateBtn" layoutX="52.0" layoutY="321.0" mnemonicParsing="false" onAction="#updateDatabase" prefHeight="41.0" prefWidth="156.0" style="-fx-background-color: #6ab04c;" text="UPDATE">
+         <font>
+            <Font name="Consolas Bold" size="15.0" />
+         </font></Button>
+      <Button fx:id="abortBtn" layoutX="398.0" layoutY="320.0" mnemonicParsing="false" onAction="#abortAction" prefHeight="42.0" prefWidth="156.0" style="-fx-background-color: #ff7979;" text="Abort">
+         <font>
+            <Font name="Consolas Bold" size="15.0" />
+         </font></Button>
+      <Label alignment="CENTER" layoutX="192.0" layoutY="28.0" prefHeight="34.0" prefWidth="216.0" text="UPDATE PASSWORD">
+         <font>
+            <Font name="Consolas Bold" size="20.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
