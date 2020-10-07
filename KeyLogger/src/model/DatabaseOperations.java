@@ -195,9 +195,6 @@ public class DatabaseOperations {
 	public static int saveToDatabase(String uname, String pwd, String nickname) throws ClassNotFoundException, SQLException {
 		int result = -1;
 		try {
-			/*String connectionURL = App.Constants.CONNECTION_URL;
-			Class.forName(App.Constants.CLASS_FOR_NAME);
-			SqlConnectionClass.conn =  DriverManager.getConnection(connectionURL);*/
 			Class.forName(App.Constants.CLASS_FOR_NAME);
 			SqlConnectionClass.conn = DriverManager.getConnection(App.Constants.CONNECTION_URL);
 			String raw = "INSERT INTO %s (%s, %s, %s) VALUES (?, ?, ?)";
@@ -259,6 +256,36 @@ public class DatabaseOperations {
 			}
 		}
 		if(result>0) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+	
+	public static boolean deleteUser(int id) {
+		int res = -1;
+		try {
+			Class.forName(App.Constants.CLASS_FOR_NAME);
+			SqlConnectionClass.conn = DriverManager.getConnection(App.Constants.CONNECTION_URL);
+			String raw = "DELETE FROM %s WHERE %s = ?";
+			String query = String.format(raw, App.Constants.USER_TABLE_NAME, UserDataAccessOperation.Constants.USER_ID);
+			ps = SqlConnectionClass.conn.prepareStatement(query);
+			ps.setInt(1, id);
+			res = ps.executeUpdate();
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+		finally {
+			try {
+				
+			}
+			catch(Exception e) {
+				e.printStackTrace();
+			}
+		}
+		if(res>0) {
 			return true;
 		}
 		else {

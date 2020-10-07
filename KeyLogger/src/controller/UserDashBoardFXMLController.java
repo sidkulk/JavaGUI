@@ -1,11 +1,13 @@
 package controller;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 import model.DatabaseOperations;
 import model.Password;
 import model.UserPasswordDataAccessOperation;
@@ -30,6 +32,8 @@ public class UserDashBoardFXMLController {
     @FXML
     private TableColumn<Password, String> passwordIdColumn;
     
+    Alert alert;
+    
 	@FXML
     private AnchorPane rootUserDashAnchor;
 	@FXML
@@ -46,7 +50,10 @@ public class UserDashBoardFXMLController {
 	public static String pwdTitle;
 	public static String pwd;
 	public static Integer pId;
-
+	
+	@FXML
+    private Button deleteMyAccBtn;
+	
 	@FXML
 	private TableColumn<Password, String> nameOfPassword;
 
@@ -92,6 +99,12 @@ public class UserDashBoardFXMLController {
 		ScreenPackClass.showUpdateEntryPage(rootUserDashAnchor);
     }
 	
+	@FXML
+    void deleteAccount(ActionEvent event) throws IOException {
+		Stage stage = (Stage) rootUserDashAnchor.getScene().getWindow();
+		stage.close();
+		AlertBoxClass.UserDeleteConfirmation(rootUserDashAnchor);
+	}
 	
 	@FXML
     void initialize() {
