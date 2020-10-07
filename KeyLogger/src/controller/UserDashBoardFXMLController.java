@@ -1,18 +1,15 @@
 package controller;
 
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
-import javafx.stage.Stage;
 import model.DatabaseOperations;
 import model.Password;
 import model.UserPasswordDataAccessOperation;
+import screenPack.ScreenPackClass;
 
 import java.io.IOException;
 import java.net.URL;
@@ -63,10 +60,7 @@ public class UserDashBoardFXMLController {
 		// Event Listener on Button[#addPasswordBtn].onAction
 	@FXML
 	public void AddNewPassword(ActionEvent event) throws IOException {
-		Parent root = FXMLLoader.load(getClass().getResource("/view/AddNewEntryFXML.fxml"));
-		Stage stage = (Stage)rootUserDashAnchor.getScene().getWindow();
-		Scene scene = new Scene(root);
-		stage.setScene(scene);
+		ScreenPackClass.showAddNewEntryPage(rootUserDashAnchor);
 	}
 
 	// Event Listener on Button[#removePasswordBtn].onAction
@@ -87,10 +81,7 @@ public class UserDashBoardFXMLController {
 	@FXML
 	public void SignOut(ActionEvent event) throws IOException {
 		AlertBoxClass.Notify("SIGNOUT", "Successfully SIGNED OUT. You'll be directed to login page!");
-		Parent root = FXMLLoader.load(getClass().getResource("/view/LoginPageFXML.fxml"));
-		Stage stage = (Stage)rootUserDashAnchor.getScene().getWindow();
-		Scene scene = new Scene(root);
-		stage.setScene(scene);
+		ScreenPackClass.showLoginPage(rootUserDashAnchor);
 	}
 	
 	@FXML
@@ -98,10 +89,7 @@ public class UserDashBoardFXMLController {
 		pwdTitle = userTableView.getSelectionModel().getSelectedItem().getPwdtitle();
 		pwd = userTableView.getSelectionModel().getSelectedItem().getPwd();
 		pId = userTableView.getSelectionModel().getSelectedItem().getId();
-		Parent root = FXMLLoader.load(getClass().getResource("/view/UpdateEntryFXML.fxml"));
-		Stage stage = (Stage)rootUserDashAnchor.getScene().getWindow();
-		Scene scene = new Scene(root);
-		stage.setScene(scene);
+		ScreenPackClass.showUpdateEntryPage(rootUserDashAnchor);
     }
 	
 	
