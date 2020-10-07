@@ -5,7 +5,7 @@ import javafx.scene.control.Button;
 
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
-import model.RegistrationDetailsSaveToDatabase;
+import model.DatabaseOperations;
 import screenPack.ScreenPackClass;
 
 import java.io.IOException;
@@ -33,7 +33,7 @@ public class AddNewEntryFXMLController {
 			AlertBoxClass.Amber("EMPTY FIELD", "You left some fields empty!");
 		}
 		else {
-			boolean isPasswordSaved = RegistrationDetailsSaveToDatabase.addNewPwd(pwdTitle.getText(), pwdContent.getText(), LoginPageFXMLController.getId());
+			boolean isPasswordSaved = DatabaseOperations.addNewPwd(pwdTitle.getText(), pwdContent.getText(), LoginPageFXMLController.getId());
 			
 			if(isPasswordSaved) {
 				AlertBoxClass.Notify("SUCCESS", "Password entry Added!");
