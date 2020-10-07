@@ -24,7 +24,7 @@
          <font>
             <Font name="Consolas Bold" size="15.0" />
          </font></Button>
-      <Button fx:id="backBtn" layoutX="425.0" layoutY="314.0" mnemonicParsing="false" onAction="#goBackToUserDash" prefHeight="34.0" prefWidth="123.0" style="-fx-background-color: #b71540;" text="EXIT">
+      <Button fx:id="backBtn" layoutX="425.0" layoutY="314.0" mnemonicParsing="false" onAction="#goBackToUserDash" prefHeight="34.0" prefWidth="123.0" style="-fx-background-color: #b71540;" text="BACK">
          <font>
             <Font name="Consolas Bold" size="15.0" />
          </font></Button>

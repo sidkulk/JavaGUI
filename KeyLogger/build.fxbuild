@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ASCII"?>
 <anttasks:AntTask xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:anttasks="http://org.eclipse.fx.ide.jdt/1.0" buildDirectory="${project}/build">
-  <deploy packagingFormat="exe">
-    <application name="KeyLogger" mainclass="application.App" version="1.2"/>
+  <deploy packagingFormat="exe" verbose="true">
+    <application name="KeyLogger" mainclass="application.App" version="1.3"/>
     <info title="KeyLogger" vendor="Siddharth"/>
   </deploy>
   <signjar/>

@@ -8,7 +8,7 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="KeyLogger.jar" size="23398" download="eager" />
+    <jar href="KeyLogger.jar" size="23465" download="eager" />
     <jar href="libs\jfxrt.jar" size="18233843" download="eager" />
     <jar href="libs\jfxswt.jar" size="33905" download="eager" />
     <jar href="libs\sqlite-jdbc-3.8.11.2.jar" size="5575351" download="eager" />
