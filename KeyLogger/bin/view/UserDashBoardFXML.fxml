@@ -10,7 +10,6 @@
    <children>
       <TableView fx:id="userTableView" layoutX="15.0" layoutY="14.0" prefHeight="736.0" prefWidth="782.0" AnchorPane.bottomAnchor="144.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="14.0">
         <columns>
-            <TableColumn fx:id="passwordIdColumn" prefWidth="75.0" text="ID" />
           <TableColumn fx:id="nameOfPassword" prefWidth="295.2000370025635" text="Name" />
             <TableColumn fx:id="passwordColums" maxWidth="480.3999938964844" minWidth="-1.0" prefWidth="411.2000427246094" text="Password" />
         </columns>

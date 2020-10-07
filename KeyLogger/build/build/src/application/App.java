@@ -1,26 +1,17 @@
 package application;
 
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.stage.Stage;
 import model.UserDataAccessOperation;
 import model.UserPasswordDataAccessOperation;
+import screenPack.ScreenPackClass;
 
 public class App extends Application {
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
-
 		createAllTables();
-		Parent root = FXMLLoader.load(getClass().getResource("/view/LoginPageFXML.fxml"));
-		Stage stage = new Stage();
-		Scene scene = new Scene(root);
-		stage.setTitle("Key Logger");
-		stage.setScene(scene);
-		stage.show();
-
+		ScreenPackClass.showLoginPage();
 	}
 
 	private void createAllTables() throws Exception {

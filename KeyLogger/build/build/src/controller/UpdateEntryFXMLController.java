@@ -1,9 +1,6 @@
 package controller;
 
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 
 import javafx.scene.control.TextField;
@@ -14,8 +11,8 @@ import AlertBoxesPack.AlertBoxClass;
 import javafx.event.ActionEvent;
 
 import javafx.scene.layout.AnchorPane;
-import javafx.stage.Stage;
 import model.DatabaseOperations;
+import screenPack.ScreenPackClass;
 
 public class UpdateEntryFXMLController {
 	@FXML
@@ -34,27 +31,24 @@ public class UpdateEntryFXMLController {
 	public void updateDatabase(ActionEvent event) throws IOException {
 		String pwdTitle = passwdTitleTxtField.getText();
 		String pwd = updatedPasswordTxtField.getText();
-		boolean isPasswordupdated = DatabaseOperations.updatepassword(UserDashBoardFXMLController.pId, pwdTitle, pwd);
-		
-		if(isPasswordupdated) {
-			AlertBoxClass.Notify("SUCCESS", "Password entry UPDATED!");
-			Parent root = FXMLLoader.load(getClass().getResource("/view/UserDashBoardFXML.fxml"));
-			Stage stage = (Stage)rootUpdatePane.getScene().getWindow();
-			Scene scene = new Scene(root);
-			stage.setScene(scene);
-			
+		if(pwdTitle.isEmpty() || pwd.isEmpty()) {
+			AlertBoxClass.Amber("CAUTION", "You left one or more fields Blank!");
 		}
 		else {
-			AlertBoxClass.ErrBox("ERROR", "Oops! Something went wrong on our end!");
+			boolean isPasswordupdated = DatabaseOperations.updatepassword(UserDashBoardFXMLController.pId, pwdTitle, pwd);
+			if(isPasswordupdated) {
+				AlertBoxClass.Notify("SUCCESS", "Password entry UPDATED!");
+				ScreenPackClass.showUserDashBoardPage(rootUpdatePane);
+			}
+			else {
+				AlertBoxClass.ErrBox("ERROR", "Oops! Something went wrong on our end!");
+			}
 		}
 	}
 	// Event Listener on Button[#abortBtn].onAction
 	@FXML
 	public void abortAction(ActionEvent event) throws IOException {
-		Parent root = FXMLLoader.load(getClass().getResource("/view/UserDashBoardFXML.fxml"));
-		Stage stage = (Stage)rootUpdatePane.getScene().getWindow();
-		Scene scene = new Scene(root);
-		stage.setScene(scene);
+		ScreenPackClass.showUserDashBoardPage(rootUpdatePane);
 	}
 	
 	@FXML

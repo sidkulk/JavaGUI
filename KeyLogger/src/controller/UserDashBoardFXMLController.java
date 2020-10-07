@@ -28,9 +28,6 @@ public class UserDashBoardFXMLController {
 
     @FXML
     private URL location;
-
-    @FXML
-    private TableColumn<Password, String> passwordIdColumn;
     
     Alert alert;
     
@@ -108,7 +105,7 @@ public class UserDashBoardFXMLController {
 	
 	@FXML
     void initialize() {
-		passwordIdColumn.setCellValueFactory(new PropertyValueFactory<Password, String>(UserPasswordDataAccessOperation.Constants.PASS_ID));
+		//passwordIdColumn.setCellValueFactory(new PropertyValueFactory<Password, String>(UserPasswordDataAccessOperation.Constants.PASS_ID));
 		nameOfPassword.setCellValueFactory(new PropertyValueFactory<Password, String>(UserPasswordDataAccessOperation.Constants.PASS_TITLE));
         passwordColums.setCellValueFactory(new PropertyValueFactory<Password, String>(UserPasswordDataAccessOperation.Constants.PASS_NAME));
         passList = DatabaseOperations.getPassDetails(LoginPageFXMLController.getId());

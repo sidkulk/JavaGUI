@@ -12,6 +12,12 @@ public class Password {
 		this.id = id;
 	}
 	
+	public Password(String pwdtitle, String pwd) {
+		super();
+		this.pwdtitle = pwdtitle;
+		this.pwd = pwd;
+	}
+	
 	public Password() {
 		
 	}

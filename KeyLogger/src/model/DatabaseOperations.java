@@ -105,14 +105,14 @@ public class DatabaseOperations {
 	public static ObservableList<Password> getPassDetails(Integer id){
 		ObservableList<Password> list = FXCollections.observableArrayList();
 		try {
-			String raw = "SELECT %s, %s, %s FROM %s WHERE %s = ?";
-			String query = String.format(raw, UserPasswordDataAccessOperation.Constants.PASS_ID, UserPasswordDataAccessOperation.Constants.PASS_TITLE, UserPasswordDataAccessOperation.Constants.PASS_NAME, App.Constants.PASSWORD_TABLE_NAME, UserPasswordDataAccessOperation.Constants.USER_ID);
+			String raw = "SELECT %s, %s FROM %s WHERE %s = ?";
+			String query = String.format(raw, UserPasswordDataAccessOperation.Constants.PASS_TITLE, UserPasswordDataAccessOperation.Constants.PASS_NAME, App.Constants.PASSWORD_TABLE_NAME, UserPasswordDataAccessOperation.Constants.USER_ID);
 			ps = SqlConnectionClass.conn.prepareStatement(query);
 			ps.setInt(1, id);
 			rs = ps.executeQuery();
 			
 			while(rs.next()) {
-				list.add(new Password(rs.getInt(UserPasswordDataAccessOperation.Constants.PASS_ID), rs.getString(UserPasswordDataAccessOperation.Constants.PASS_TITLE), rs.getString(UserPasswordDataAccessOperation.Constants.PASS_NAME)));
+				list.add(new Password(rs.getString(UserPasswordDataAccessOperation.Constants.PASS_TITLE), rs.getString(UserPasswordDataAccessOperation.Constants.PASS_NAME)));
 			}
 		}catch(Exception e) {
 			
