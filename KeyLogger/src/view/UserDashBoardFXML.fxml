@@ -10,8 +10,8 @@
    <children>
       <TableView fx:id="userTableView" layoutX="15.0" layoutY="14.0" prefHeight="736.0" prefWidth="782.0" AnchorPane.bottomAnchor="144.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="14.0">
         <columns>
-          <TableColumn fx:id="nameOfPassword" prefWidth="295.2000370025635" text="Name" />
-            <TableColumn fx:id="passwordColums" maxWidth="480.3999938964844" minWidth="-1.0" prefWidth="411.2000427246094" text="Password" />
+          <TableColumn fx:id="nameOfPassword" maxWidth="370.3999881744385" minWidth="100.0" prefWidth="364.0000247955322" resizable="false" text="Name" />
+            <TableColumn fx:id="passwordColums" maxWidth="500.0" minWidth="100.0" prefWidth="416.0000305175781" resizable="false" text="Password" />
         </columns>
       </TableView>
       <Button fx:id="addPasswordBtn" layoutX="14.0" layoutY="767.0" mnemonicParsing="false" onAction="#AddNewPassword" prefHeight="46.0" prefWidth="147.0" style="-fx-background-color: #78e08f;" text="ADD" AnchorPane.bottomAnchor="80.60000000000002" AnchorPane.leftAnchor="14.0">
