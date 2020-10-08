@@ -105,7 +105,7 @@
 		</fx:resources>
 	
 		<fx:application id="fxApplication"
-			name="KeyLogger"
+			name="PassKeep"
 			mainClass="application.App"
 		/>
 	
@@ -121,8 +121,8 @@
 	
 			<manifest>
 				<attribute name="Implementation-Vendor" value="Kulkarni Systems"/>
-				<attribute name="Implementation-Title" value="KeyLogger"/>
-				<attribute name="Implementation-Version" value="1.5"/>
+				<attribute name="Implementation-Title" value="PassKeep"/>
+				<attribute name="Implementation-Version" value="1.6"/>
 				<attribute name="JavaFX-Feature-Proxy" value="None"/>
 			</manifest>
 		</fx:jar>
