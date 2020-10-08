@@ -120,9 +120,9 @@
 			<fx:resources refid="appRes"/>
 	
 			<manifest>
-				<attribute name="Implementation-Vendor" value="Siddharth"/>
+				<attribute name="Implementation-Vendor" value="Kulkarni Systems"/>
 				<attribute name="Implementation-Title" value="KeyLogger"/>
-				<attribute name="Implementation-Version" value="1.4"/>
+				<attribute name="Implementation-Version" value="1.5"/>
 				<attribute name="JavaFX-Feature-Proxy" value="None"/>
 			</manifest>
 		</fx:jar>
@@ -141,7 +141,7 @@
 			updatemode="background" >
 	
 			<fx:platform basedir="${java.home}"/>
-			<fx:info title="KeyLogger" vendor="Siddharth"/>
+			<fx:info title="KeyLogger" vendor="Kulkarni Systems"/>
 	
 			<fx:application refId="fxApplication"/>
 			<fx:resources refid="appRes"/>
