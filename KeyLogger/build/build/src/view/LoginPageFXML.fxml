@@ -9,11 +9,11 @@
 
 <AnchorPane fx:id="rootLoginPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="454.0" prefWidth="690.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LoginPageFXMLController">
 	<children>
-		<Button fx:id="loginBtn" layoutX="264.0" layoutY="261.0" mnemonicParsing="false" onAction="#LoginCredentialsVarification" prefHeight="46.0" prefWidth="163.0" style="-fx-background-color: #badc58;" text="Login" AnchorPane.leftAnchor="264.0" AnchorPane.rightAnchor="263.0">
+		<Button fx:id="loginBtn" layoutX="275.0" layoutY="241.0" mnemonicParsing="false" onAction="#LoginCredentialsVarification" prefHeight="46.0" prefWidth="163.0" style="-fx-background-color: #badc58;" text="Login" AnchorPane.leftAnchor="275.0" AnchorPane.rightAnchor="275.0">
          <font>
             <Font name="Consolas Bold" size="20.0" />
          </font></Button>
-		<Button fx:id="newUserBtn" layoutX="252.0" layoutY="322.0" mnemonicParsing="false" onAction="#RegistrationPage" prefHeight="46.0" prefWidth="186.0" style="-fx-background-color: #f9ca24;" text="Register User" AnchorPane.leftAnchor="252.0" AnchorPane.rightAnchor="252.0">
+		<Button fx:id="newUserBtn" layoutX="29.0" layoutY="385.0" mnemonicParsing="false" onAction="#RegistrationPage" prefHeight="46.0" prefWidth="186.0" style="-fx-background-color: #f9ca24;" text="Register User" AnchorPane.leftAnchor="29.0" AnchorPane.rightAnchor="476.0">
          <font>
             <Font name="Consolas Bold" size="20.0" />
          </font></Button>
@@ -32,7 +32,11 @@
             <Font name="Consolas" size="22.0" />
          </font>
       </Label>
-      <Button fx:id="exitBtn" layoutX="282.0" layoutY="391.0" mnemonicParsing="false" onAction="#exitApplication" prefHeight="38.0" prefWidth="126.0" style="-fx-background-color: #eb4d4b;" text="EXIT">
+      <Button fx:id="exitBtn" layoutX="481.0" layoutY="389.0" mnemonicParsing="false" onAction="#exitApplication" prefHeight="38.0" prefWidth="126.0" style="-fx-background-color: #eb4d4b;" text="EXIT" AnchorPane.leftAnchor="481.0" AnchorPane.rightAnchor="24.0">
+         <font>
+            <Font name="Consolas Bold" size="20.0" />
+         </font></Button>
+      <Button fx:id="forgotPassBtn" layoutX="223.0" layoutY="315.0" mnemonicParsing="false" onAction="#forgotPassword" prefHeight="38.0" prefWidth="244.0" style="-fx-background-color: #2e86de;" text="Forgot Password" AnchorPane.bottomAnchor="100.60000000000002">
          <font>
             <Font name="Consolas Bold" size="20.0" />
          </font></Button>

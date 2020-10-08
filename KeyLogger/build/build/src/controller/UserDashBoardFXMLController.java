@@ -105,7 +105,6 @@ public class UserDashBoardFXMLController {
 	
 	@FXML
     void initialize() {
-		//passwordIdColumn.setCellValueFactory(new PropertyValueFactory<Password, String>(UserPasswordDataAccessOperation.Constants.PASS_ID));
 		nameOfPassword.setCellValueFactory(new PropertyValueFactory<Password, String>(UserPasswordDataAccessOperation.Constants.PASS_TITLE));
         passwordColums.setCellValueFactory(new PropertyValueFactory<Password, String>(UserPasswordDataAccessOperation.Constants.PASS_NAME));
         passList = DatabaseOperations.getPassDetails(LoginPageFXMLController.getId());

@@ -58,8 +58,8 @@ public class ScreenPackClass {
 		stage.setScene(scene);
 		stage.show();
 	}
-	
-	public static void showRegistrationPage(AnchorPane rootpane) throws IOException{
+
+	public static void showRegistrationPage(AnchorPane rootpane) throws IOException {
 		Parent root = FXMLLoader.load(App.class.getResource("/view/RegisterPageFXML.fxml"));
 		Stage stage = (Stage) rootpane.getScene().getWindow();
 		Scene scene = new Scene(root);
@@ -67,9 +67,27 @@ public class ScreenPackClass {
 		stage.setScene(scene);
 		stage.show();
 	}
-	
+
 	public static void showConfirmationWindow(AnchorPane rootpane) throws IOException {
 		Parent root = FXMLLoader.load(App.class.getResource("/view/DeleteUserAccConfBoxFXML.fxml"));
+		Stage stage = (Stage) rootpane.getScene().getWindow();
+		Scene scene = new Scene(root);
+		stage.setResizable(false);
+		stage.setScene(scene);
+		stage.show();
+	}
+
+	public static void showForgotPasswordPage(AnchorPane rootpane) throws IOException {
+		Parent root = FXMLLoader.load(App.class.getResource("/view/ForgotPasswordFXML.fxml"));
+		Stage stage = (Stage) rootpane.getScene().getWindow();
+		Scene scene = new Scene(root);
+		stage.setResizable(false);
+		stage.setScene(scene);
+		stage.show();
+	}
+	
+	public static void showRecoveredDetails(AnchorPane rootpane) throws IOException {
+		Parent root = FXMLLoader.load(App.class.getResource("/view/RecoveredCredFXML.fxml"));
 		Stage stage = (Stage) rootpane.getScene().getWindow();
 		Scene scene = new Scene(root);
 		stage.setResizable(false);

@@ -13,6 +13,8 @@ import javafx.collections.ObservableList;
 public class DatabaseOperations {
 	static PreparedStatement ps;
 	static ResultSet rs;
+	public static String username = "";
+	public static String password = "";
 	public static boolean checkLoginCred(String username, String pwd) throws SQLException, ClassNotFoundException {
 		boolean result = false;
 		try {
@@ -291,5 +293,36 @@ public class DatabaseOperations {
 		else {
 			return false;
 		}
+	}
+	
+	public static boolean accountRecovery(String nickname) {
+		boolean res = false;
+		try {
+			Class.forName(App.Constants.CLASS_FOR_NAME);
+			SqlConnectionClass.conn = DriverManager.getConnection(App.Constants.CONNECTION_URL);
+			String raw = "SELECT %s, %s FROM %s WHERE %s = ?;";
+			String query = String.format(raw, UserDataAccessOperation.Constants.USER_NAME, UserDataAccessOperation.Constants.USER_PWD, App.Constants.USER_TABLE_NAME, UserDataAccessOperation.Constants.USER_NICK);
+			ps = SqlConnectionClass.conn.prepareStatement(query);
+			ps.setString(1, nickname);
+			rs = ps.executeQuery();
+			if(rs.next()) {
+				res = true;
+				username = rs.getString(1);
+				password = rs.getString(2);
+			}
+			else {
+				res = false;
+			}
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				ps.close();
+				rs.close();
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return res;
 	}
 }

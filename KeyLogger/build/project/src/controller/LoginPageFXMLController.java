@@ -31,27 +31,32 @@ public class LoginPageFXMLController {
 	private TextField userNameTxtField;
 
 	@FXML
+	private Button forgotPassBtn;
+
+	@FXML
 	private Button exitBtn;
-	
+
 	private static Integer userId;
 	private static String userpwd;
-	
+
 	public void setValues() throws SQLException {
 		userId = DatabaseOperations.getId(userNameTxtField.getText());
 		userpwd = DatabaseOperations.getPwd(passwordTxtField.getText());
 	}
-	
+
 	public static int getId() {
 		return userId;
 	}
-	
+
 	public static String getPwd() {
 		return userpwd;
 	}
+
 	@FXML
 	void LoginCredentialsVarification(ActionEvent event) throws IOException, ClassNotFoundException, SQLException {
 		boolean isValidCred = DatabaseOperations.checkLoginCred(userNameTxtField.getText(), passwordTxtField.getText());
-		boolean isEmptyField = DatabaseOperations.checkEmptyField(userNameTxtField.getText(), passwordTxtField.getText());
+		boolean isEmptyField = DatabaseOperations.checkEmptyField(userNameTxtField.getText(),
+				passwordTxtField.getText());
 		if (isEmptyField) {
 			AlertBoxClass.ErrBox("Empty Field", "One or more fields are left empty!");
 		} else if (!isValidCred) {
@@ -71,5 +76,10 @@ public class LoginPageFXMLController {
 	@FXML
 	void exitApplication(ActionEvent event) {
 		System.exit(0);
+	}
+
+	@FXML
+	void forgotPassword(ActionEvent event) throws IOException {
+		ScreenPackClass.showForgotPasswordPage(rootLoginPane);
 	}
 }
