@@ -37,7 +37,7 @@
 	
 		<mkdir dir="project" />
 		<copy todir="project">
-			<fileset dir="C:\Users\Siddharth\git\JavaGUI\KeyLogger">
+			<fileset dir="E:\projects\PetProjects\JavaGUI\KeyLogger">
 				<include name="src/**" />
 			</fileset>
 		</copy>
@@ -122,7 +122,7 @@
 			<manifest>
 				<attribute name="Implementation-Vendor" value="Kulkarni Systems"/>
 				<attribute name="Implementation-Title" value="PassKeep"/>
-				<attribute name="Implementation-Version" value="1.6"/>
+				<attribute name="Implementation-Version" value="1.7"/>
 				<attribute name="JavaFX-Feature-Proxy" value="None"/>
 			</manifest>
 		</fx:jar>

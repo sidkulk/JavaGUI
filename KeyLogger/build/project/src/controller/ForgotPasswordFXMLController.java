@@ -17,36 +17,38 @@ import javafx.event.ActionEvent;
 public class ForgotPasswordFXMLController {
 	@FXML
 	private TextField nickNameTxtField;
+
+	@FXML
+	private TextField childhoodFriendName;
+
 	@FXML
 	private Button findMeBtn;
 
 	@FXML
 	private AnchorPane rootPassRecovPane;
-	
+
 	@FXML
-    private Button backBtn;
+	private Button backBtn;
 
 	// Event Listener on Button[#findMeBtn].onAction
 	@FXML
 	public void findAccDetails(ActionEvent event) throws IOException {
-		if(nickNameTxtField.getText().isEmpty()) {
+		if (nickNameTxtField.getText().isEmpty() || childhoodFriendName.getText().isEmpty()) {
 			AlertBoxClass.Amber("CAUTION", "You left the recovery field empty!");
-		}
-		else {
-			boolean accountFound = DatabaseOperations.accountRecovery(nickNameTxtField.getText());
+		} else {
+			boolean accountFound = DatabaseOperations.accountRecovery(nickNameTxtField.getText(), childhoodFriendName.getText());
 			if (!accountFound) {
 				AlertBoxClass.ErrBox("USER NOT FOUND",
 						"We failed to retrive your account details. You'll be redirected to login page.");
 				ScreenPackClass.showLoginPage(rootPassRecovPane);
-			}
-			else {
+			} else {
 				ScreenPackClass.showRecoveredDetails(rootPassRecovPane);
 			}
 		}
 	}
-	
+
 	@FXML
-    void backToLogin(ActionEvent event) throws IOException {
+	void backToLogin(ActionEvent event) throws IOException {
 		ScreenPackClass.showLoginPage(rootPassRecovPane);
-    }
+	}
 }

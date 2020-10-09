@@ -9,6 +9,7 @@ import java.sql.Statement;
 import application.App;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.control.TableView;
 
 public class DatabaseOperations {
 	static PreparedStatement ps;
@@ -107,14 +108,14 @@ public class DatabaseOperations {
 	public static ObservableList<Password> getPassDetails(Integer id){
 		ObservableList<Password> list = FXCollections.observableArrayList();
 		try {
-			String raw = "SELECT %s, %s FROM %s WHERE %s = ?";
-			String query = String.format(raw, UserPasswordDataAccessOperation.Constants.PASS_TITLE, UserPasswordDataAccessOperation.Constants.PASS_NAME, App.Constants.PASSWORD_TABLE_NAME, UserPasswordDataAccessOperation.Constants.USER_ID);
+			String raw = "SELECT %s, %s, %s FROM %s WHERE %s = ?";
+			String query = String.format(raw, UserPasswordDataAccessOperation.Constants.PASS_ID, UserPasswordDataAccessOperation.Constants.PASS_TITLE, UserPasswordDataAccessOperation.Constants.PASS_NAME, App.Constants.PASSWORD_TABLE_NAME, UserPasswordDataAccessOperation.Constants.USER_ID);
 			ps = SqlConnectionClass.conn.prepareStatement(query);
 			ps.setInt(1, id);
 			rs = ps.executeQuery();
 			
 			while(rs.next()) {
-				list.add(new Password(rs.getString(UserPasswordDataAccessOperation.Constants.PASS_TITLE), rs.getString(UserPasswordDataAccessOperation.Constants.PASS_NAME)));
+				list.add(new Password(rs.getInt(UserPasswordDataAccessOperation.Constants.PASS_ID), rs.getString(UserPasswordDataAccessOperation.Constants.PASS_TITLE), rs.getString(UserPasswordDataAccessOperation.Constants.PASS_NAME)));
 			}
 		}catch(Exception e) {
 			
@@ -130,7 +131,7 @@ public class DatabaseOperations {
 		return list;
 	}
 	
-	public static boolean removeFromDatabase(Integer id) {
+	public static boolean removeFromDatabase(Integer id, TableView<Password> tabview) {
 		boolean res = false;
 		try {
 			Class.forName(App.Constants.CLASS_FOR_NAME);
@@ -142,6 +143,7 @@ public class DatabaseOperations {
 			int i = ps.executeUpdate();
 			if(i>0) {
 				res = true;
+				tabview.getItems().removeAll(tabview.getSelectionModel().getSelectedItem());
 			}
 			else {
 				res = false;
@@ -194,17 +196,18 @@ public class DatabaseOperations {
 		return res;
 	}
 	
-	public static int saveToDatabase(String uname, String pwd, String nickname) throws ClassNotFoundException, SQLException {
+	public static int saveToDatabase(String uname, String pwd, String nickname, String childhoodFrnd) throws ClassNotFoundException, SQLException {
 		int result = -1;
 		try {
 			Class.forName(App.Constants.CLASS_FOR_NAME);
 			SqlConnectionClass.conn = DriverManager.getConnection(App.Constants.CONNECTION_URL);
-			String raw = "INSERT INTO %s (%s, %s, %s) VALUES (?, ?, ?)";
-			String query = String.format(raw, App.Constants.USER_TABLE_NAME, UserDataAccessOperation.Constants.USER_NAME, UserDataAccessOperation.Constants.USER_PWD, UserDataAccessOperation.Constants.USER_NICK);
+			String raw = "INSERT INTO %s (%s, %s, %s, %s) VALUES (?, ?, ?, ?)";
+			String query = String.format(raw, App.Constants.USER_TABLE_NAME, UserDataAccessOperation.Constants.USER_NAME, UserDataAccessOperation.Constants.USER_PWD, UserDataAccessOperation.Constants.USER_NICK, UserDataAccessOperation.Constants.USER_CHCILDHOOD_FRND);
 			ps = SqlConnectionClass.conn.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
 			ps.setString(1, uname);
 			ps.setString(2, pwd);
 			ps.setString(3, nickname);
+			ps.setString(4, childhoodFrnd);
 			int i = ps.executeUpdate();
 			System.out.println("Query status: "+i);
 			rs = ps.getGeneratedKeys();
@@ -295,15 +298,16 @@ public class DatabaseOperations {
 		}
 	}
 	
-	public static boolean accountRecovery(String nickname) {
+	public static boolean accountRecovery(String nickname, String childhoodFrnd) {
 		boolean res = false;
 		try {
 			Class.forName(App.Constants.CLASS_FOR_NAME);
 			SqlConnectionClass.conn = DriverManager.getConnection(App.Constants.CONNECTION_URL);
-			String raw = "SELECT %s, %s FROM %s WHERE %s = ?;";
-			String query = String.format(raw, UserDataAccessOperation.Constants.USER_NAME, UserDataAccessOperation.Constants.USER_PWD, App.Constants.USER_TABLE_NAME, UserDataAccessOperation.Constants.USER_NICK);
+			String raw = "SELECT %s, %s FROM %s WHERE %s = ? AND %s = ?;";
+			String query = String.format(raw, UserDataAccessOperation.Constants.USER_NAME, UserDataAccessOperation.Constants.USER_PWD, App.Constants.USER_TABLE_NAME, UserDataAccessOperation.Constants.USER_NICK, UserDataAccessOperation.Constants.USER_CHCILDHOOD_FRND);
 			ps = SqlConnectionClass.conn.prepareStatement(query);
 			ps.setString(1, nickname);
+			ps.setString(2, childhoodFrnd);
 			rs = ps.executeQuery();
 			if(rs.next()) {
 				res = true;

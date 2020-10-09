@@ -1,8 +1,8 @@
 package model;
 
 public class RegistrationValidation {
-	public static boolean isEmptyField(String uname, String pwd, String confPwd, String nickName) {
-		if(uname.isEmpty() || pwd.isEmpty() || confPwd.isEmpty() || nickName.isEmpty()) {
+	public static boolean isEmptyField(String uname, String pwd, String confPwd, String nickName, String childhoodFrnd) {
+		if(uname.isEmpty() || pwd.isEmpty() || confPwd.isEmpty() || nickName.isEmpty() || childhoodFrnd.isEmpty()) {
 			return true;
 		}
 		else {
