@@ -26,23 +26,39 @@
          <font>
             <Font name="Consolas Bold" size="15.0" />
          </font></Label>
-      <Label layoutX="150.0" layoutY="313.0" prefHeight="30.0" prefWidth="166.0" text="Enter your nickname" AnchorPane.leftAnchor="150.0" AnchorPane.topAnchor="313.0">
+      <Label layoutX="150.0" layoutY="313.0" prefHeight="30.0" prefWidth="166.0" text="Enter your nickname" AnchorPane.leftAnchor="150.0" AnchorPane.topAnchor="315.0">
          <font>
             <Font name="Consolas Bold" size="15.0" />
          </font></Label>
       <TextField fx:id="userNameTxtField" layoutX="296.0" layoutY="181.0" prefHeight="30.0" prefWidth="218.0" promptText="Enter a Username" AnchorPane.leftAnchor="330.0" AnchorPane.topAnchor="180.0" />
-      <TextField fx:id="nickNameField" layoutX="330.0" layoutY="314.0" prefHeight="30.0" prefWidth="218.0" promptText="Enter your nickname" AnchorPane.leftAnchor="330.0" AnchorPane.topAnchor="314.0" />
-      <Button fx:id="registerBtn" layoutX="297.0" layoutY="379.0" mnemonicParsing="false" onAction="#registerUser" prefHeight="42.0" prefWidth="165.0" style="-fx-background-color: #badc58;" text="Register">
+      <TextField fx:id="nickNameField" layoutX="330.0" layoutY="314.0" prefHeight="30.0" prefWidth="218.0" promptText="Enter your nickname" AnchorPane.leftAnchor="330.0" AnchorPane.topAnchor="315.0" />
+      <Button fx:id="registerBtn" layoutX="297.0" layoutY="449.0" mnemonicParsing="false" onAction="#registerUser" prefHeight="42.0" prefWidth="165.0" style="-fx-background-color: #badc58;" text="Register">
          <font>
             <Font name="Consolas" size="20.0" />
          </font>
       </Button>
-      <Button fx:id="backToLoginBtn" layoutX="282.0" layoutY="458.0" mnemonicParsing="false" onAction="#backToLoginPage" prefHeight="30.0" prefWidth="194.0" style="-fx-background-color: #ffbe76;" text="Back To Login">
+      <Button fx:id="backToLoginBtn" layoutX="283.0" layoutY="514.0" mnemonicParsing="false" onAction="#backToLoginPage" prefHeight="30.0" prefWidth="194.0" style="-fx-background-color: #ffbe76;" text="Back To Login">
          <font>
             <Font name="Consolas" size="20.0" />
          </font>
       </Button>
       <PasswordField fx:id="pwdTxtField" layoutX="296.0" layoutY="227.0" prefHeight="30.0" prefWidth="218.0" promptText="Enter your password" AnchorPane.leftAnchor="330.0" AnchorPane.topAnchor="225.0" />
       <PasswordField fx:id="confPwdTxtField" layoutX="296.0" layoutY="271.0" prefHeight="30.0" prefWidth="218.0" promptText="retype your password" AnchorPane.leftAnchor="330.0" />
+      <Label layoutX="26.0" layoutY="359.0" prefHeight="30.0" prefWidth="290.0" text="Enter your childhood friend's name" AnchorPane.topAnchor="360.0">
+         <font>
+            <Font name="Consolas Bold" size="15.0" />
+         </font>
+      </Label>
+      <TextField fx:id="childhoodFrndName" layoutX="330.0" layoutY="359.0" prefHeight="30.0" prefWidth="218.0" promptText="Enter childhood friend's name" AnchorPane.topAnchor="360.0" />
+      <Label layoutX="567.0" layoutY="322.0" prefHeight="18.0" prefWidth="166.0" text="(For account recovery..)">
+         <font>
+            <Font name="Consolas Bold Italic" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="567.0" layoutY="366.0" prefHeight="18.0" prefWidth="166.0" text="(For account recovery..)">
+         <font>
+            <Font name="Consolas Bold Italic" size="12.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

@@ -58,6 +58,9 @@ public class UserDashBoardFXMLController {
 	private TableColumn<Password, String> passwordColums;
 	
 	@FXML
+    private TableColumn<Password, Integer> passIdColumn;
+	
+	@FXML
     private Button updatePasswordBtn;
 	
 	ObservableList<Password> passList;
@@ -71,8 +74,8 @@ public class UserDashBoardFXMLController {
 	@FXML
 	public void RemovePassword(ActionEvent event) {
 		Password pass = userTableView.getSelectionModel().getSelectedItem();
-		boolean removedFromDb = DatabaseOperations.removeFromDatabase(pass.getId());
-		userTableView.getItems().removeAll(userTableView.getSelectionModel().getSelectedItem());
+		boolean removedFromDb = DatabaseOperations.removeFromDatabase(pass.getId(), userTableView);
+		//userTableView.getItems().removeAll(userTableView.getSelectionModel().getSelectedItem());
 		if(removedFromDb) {
 			AlertBoxClass.Notify("SUCCESS", "Password entry removed!");
 		}
@@ -105,6 +108,7 @@ public class UserDashBoardFXMLController {
 	
 	@FXML
     void initialize() {
+		passIdColumn.setCellValueFactory(new PropertyValueFactory<Password, Integer>(UserPasswordDataAccessOperation.Constants.PASS_ID));
 		nameOfPassword.setCellValueFactory(new PropertyValueFactory<Password, String>(UserPasswordDataAccessOperation.Constants.PASS_TITLE));
         passwordColums.setCellValueFactory(new PropertyValueFactory<Password, String>(UserPasswordDataAccessOperation.Constants.PASS_NAME));
         passList = DatabaseOperations.getPassDetails(LoginPageFXMLController.getId());

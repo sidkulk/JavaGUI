@@ -9,8 +9,8 @@ import application.App;
 public class UserDataAccessOperation {
 	static Connection conn;
 	public static void createUserTable() throws Exception {
-		String raw = "CREATE TABLE IF NOT EXISTS %s ( %s INTEGER PRIMARY KEY AUTOINCREMENT, %s VARCHAR(50), %s VARCHAR(50), %s VARCHAR(50) );";
-		String query = String.format(raw, App.Constants.USER_TABLE_NAME, Constants.USER_ID, Constants.USER_NAME, Constants.USER_PWD, Constants.USER_NICK);
+		String raw = "CREATE TABLE IF NOT EXISTS %s ( %s INTEGER PRIMARY KEY AUTOINCREMENT, %s VARCHAR(50), %s VARCHAR(50), %s VARCHAR(50), %s VARCHAR(50));";
+		String query = String.format(raw, App.Constants.USER_TABLE_NAME, Constants.USER_ID, Constants.USER_NAME, Constants.USER_PWD, Constants.USER_NICK, Constants.USER_CHCILDHOOD_FRND);
 		String connectionURL = App.Constants.CONNECTION_URL;
 		Class.forName(App.Constants.CLASS_FOR_NAME);
 		conn =  DriverManager.getConnection(connectionURL);
@@ -23,5 +23,6 @@ public class UserDataAccessOperation {
 		public static final String USER_NAME = "uname";
 		public static final String USER_PWD = "password";
 		public static final String USER_NICK = "nickname";
+		public static final String USER_CHCILDHOOD_FRND = "childhoodFrnd";
 	}
 }
