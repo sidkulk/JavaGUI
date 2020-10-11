@@ -30,4 +30,3 @@ public class App extends Application {
 		public static final String CLASS_FOR_NAME = "org.sqlite.JDBC";
 	}
 }
-
